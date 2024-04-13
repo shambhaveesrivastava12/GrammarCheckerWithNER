@@ -29,13 +29,20 @@ def grammar():
         corrected_file_grammar, _ = spell_checker_module.correct_grammar(readable_file)
         return render_template('index.html', corrected_file_text=corrected_file_text, corrected_file_grammar=corrected_file_grammar)
 
-@app.route('/ner', methods=['POST'])
+@app.route('/perform_ner', methods=['POST'])
+def perform_ner():
+    if request.method=='POST':
+        file = request.files['file']
+        if file:
+            readable_file = file.read().decode('utf-8',errors='ignore')
+            docs = nlp(readable_file)
+            html = displacy.render(docs,style='ent',jupyter=False)
+            return render_template('ner.html',html=html,text=readable_file)
+
+
+@app.route('/ner')
 def ner():
-    if request.method == 'POST':
-        corrected_text = request.form['corrected_text']
-        docs = nlp(corrected_text)
-        html = displacy.render(docs, style='ent', jupyter=False)
-        return render_template('index.html', html=html, corrected_text=corrected_text)
+    return render_template('ner.html')
 
 
 # python main
