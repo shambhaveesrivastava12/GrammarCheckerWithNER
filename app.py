@@ -9,8 +9,16 @@ nlp = spacy.load('en_core_web_sm')
 
 # routes
 @app.route('/')
-def index():
-    return render_template('index.html')
+def home():
+    return (render_template('home.html'))
+
+@app.route('/grammar_button', methods=['GET', 'POST'])
+def grammar_button():
+    return (render_template('index.html'))
+
+@app.route('/ner_button', methods=['GET', 'POST'])
+def ner_button():
+    return (render_template('ner.html'))
 
 @app.route('/spell', methods=['POST', 'GET'])
 def spell():

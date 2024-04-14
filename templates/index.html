@@ -62,7 +62,7 @@
     </style>
 </head>
 <body>
-<h1 class="text-center">Spell Checker And NER</h1>
+<h1 class="text-center">Spell and Grammar Checker</h1>
 <div class="container">
     <form id="spellForm" action="/spell" method="post" enctype="multipart/form-data">
         <div class="form-group">
@@ -92,27 +92,27 @@
     {% endif %}
 </div>
 
-<div class="container">
-    <!-- NER button -->
-    <br>
-    <br>
-    <h3>If you want to conduct Name Entity Recognition, click here!</h3>
-    <button id="nerButton" type="button" class="btn btn-primary border-0">Perform NER</button>
-</div>
+<!--<div class="container">-->
+<!--    &lt;!&ndash; NER button &ndash;&gt;-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <h3>If you want to conduct Name Entity Recognition, click here!</h3>-->
+<!--    <button id="nerButton" type="button" class="btn btn-primary border-0">Perform NER</button>-->
+<!--</div>-->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
-<script>
-    document.getElementById("correctButton").addEventListener("click", function () {
-        // Submit the form for spell correction
-        document.getElementById("spellForm").submit();
-    });
+<!--<script>-->
+<!--    document.getElementById("correctButton").addEventListener("click", function () {-->
+<!--        // Submit the form for spell correction-->
+<!--        document.getElementById("spellForm").submit();-->
+<!--    });-->
 
-    document.getElementById("nerButton").addEventListener("click", function () {
-        // Redirect to NER page
-        window.location.href = "/ner";
-    });
-</script>
+<!--    document.getElementById("nerButton").addEventListener("click", function () {-->
+<!--        // Redirect to NER page-->
+<!--        window.location.href = "/ner";-->
+<!--    });-->
+<!--</script>-->
 </body>
 </html>
