@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grammar And Spell Checker</title>
+    <title>Grammar Checker</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <style>
@@ -13,63 +13,42 @@
             color: white;
             font-family: Garamond, serif;
         }
-
         .text-center {
             text-align: center;
             font-family: Garamond, serif;
         }
-
         .container {
             margin-top: 10px;
             max-width: 600px;
         }
-
         h1 {
             text-align: center;
             margin-bottom: 30px;
         }
-
         textarea {
             width: 100%;
             height: 200px;
             resize: none;
         }
-
         .btn-primary {
             background-color: #9c689c !important;
             margin-top: 20px;
             width: 100%;
         }
-
         .btn-primary:hover {
             background-color: #090509 !important;
-        }
-
-        .corrected-text {
-            margin-top: 30px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .entity-text {
-            margin-top: 30px;
-        }
-
-        /* Hide NER form by default */
-        #nerForm {
-            display: none;
         }
     </style>
 </head>
 <body>
-<h1 class="text-center">Spell and Grammar Checker</h1>
+<h1 class="text-center">Grammar Checker</h1>
 <div class="container">
     <form id="spellForm" action="/spell" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="text">Type your text here</label>
             <textarea class="form-control" id="text" name="text"></textarea>
         </div>
-        <button id="correctButton" type="button" class="btn btn-primary border-0">Correct</button>
+        <button id="correctButton" type="button" class="btn btn-primary border-0">Revise</button>
     </form>
 
     {% if corrected_text and corrected_grammar %}
@@ -84,7 +63,7 @@
             <label for="file">Upload File</label>
             <input type="file" id="file" name="file" class="form-control">
         </div>
-        <button type="submit" class="btn btn-primary border-0">Correct</button>
+        <button type="submit" class="btn btn-primary border-0">Revise</button>
     </form>
     {% if corrected_file_text and corrected_file_grammar %}
     <h5>Corrected Word: <br> {{corrected_file_text}}</h5>
@@ -92,27 +71,13 @@
     {% endif %}
 </div>
 
-<!--<div class="container">-->
-<!--    &lt;!&ndash; NER button &ndash;&gt;-->
-<!--    <br>-->
-<!--    <br>-->
-<!--    <h3>If you want to conduct Name Entity Recognition, click here!</h3>-->
-<!--    <button id="nerButton" type="button" class="btn btn-primary border-0">Perform NER</button>-->
-<!--</div>-->
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
-<!--<script>-->
-<!--    document.getElementById("correctButton").addEventListener("click", function () {-->
-<!--        // Submit the form for spell correction-->
-<!--        document.getElementById("spellForm").submit();-->
-<!--    });-->
-
-<!--    document.getElementById("nerButton").addEventListener("click", function () {-->
-<!--        // Redirect to NER page-->
-<!--        window.location.href = "/ner";-->
-<!--    });-->
-<!--</script>-->
+<script>
+    document.getElementById("correctButton").addEventListener("click", function () {
+        document.getElementById("spellForm").submit();
+    });
+</script>
 </body>
 </html>

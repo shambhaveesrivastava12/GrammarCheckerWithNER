@@ -18,19 +18,12 @@ class SpellCheckerModule:
         matches = self.grammar_check.check(text)
         found_mistakes = []
         for mistake in matches:
-            found_mistakes.append((mistake.ruleId, mistake.replacements))
+            found_mistakes.append((mistake.message, mistake.replacements))
         found_mistakes_count = len(found_mistakes)
         return found_mistakes, found_mistakes_count
-
-    # def display_grammar_mistakes(self, found_mistakes):
-    #     for mistake in found_mistakes:
-    #         print("Mistake:", mistake[0])
-    #         print("Suggestions:", mistake[1])
-    #         print()
 
 if __name__ == "__main__":
     obj = SpellCheckerModule()
     text = "Your sentnece has some grammatical errors."
     grammar_mistakes, count = obj.correct_grammar(text)
     print("Number of grammar mistakes:", count)
-    # obj.display_grammar_mistakes(grammar_mistakes)
