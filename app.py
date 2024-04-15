@@ -12,6 +12,10 @@ nlp = spacy.load('en_core_web_sm')
 def home():
     return (render_template('home.html'))
 
+@app.route('/back_index', methods=['GET', 'POST'])
+def back_index():
+    return (render_template('home.html'))
+
 @app.route('/grammar_button', methods=['GET', 'POST'])
 def grammar_button():
     return (render_template('index.html'))
